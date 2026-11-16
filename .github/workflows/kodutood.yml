@@ -1,0 +1,41 @@
+name: Stuudiumi kodutööd
+
+on:
+  schedule:
+    - cron: "0 13 * * *"   # every day 13:00 UTC = 15:00 Tallinn (winter time)
+  workflow_dispatch:       # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright
+        run: |
+          pip install playwright==1.48.0
+          python -m playwright install --with-deps chromium
+
+      - name: Fetch homework from Stuudium
+        env:
+          STUUDIUM_URL: ${{ secrets.STUUDIUM_URL }}
+          STUUDIUM_USER: ${{ secrets.STUUDIUM_USER }}
+          STUUDIUM_PASS: ${{ secrets.STUUDIUM_PASS }}
+        run: python scrape.py
+        continue-on-error: true
+
+      - name: Save results to repo
+        run: |
+          git config user.name "kodutood-bot"
+          git config user.email "kodutood-bot@users.noreply.github.com"
+          git add data
+          git commit -m "Kodutööd $(date -u +%Y-%m-%d)" || echo "No changes"
+          git push
