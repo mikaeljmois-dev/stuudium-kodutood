@@ -9,7 +9,6 @@ ja saadab teavituse Claude'i äppi.
 
 1. Hoia see repositoorium **privaatsena**.
 2. Settings → Secrets and variables → Actions → New repository secret:
-   - `STUUDIUM_URL` – sinu kooli Stuudiumi aadress, nt `https://minukool.ope.ee`
    - `STUUDIUM_USER` – Stuudiumi kasutajanimi / e-post
    - `STUUDIUM_PASS` – Stuudiumi parool
 3. Actions → "Stuudiumi kodutööd" → Run workflow, et esimest korda proovida.

@@ -26,7 +26,7 @@ jobs:
 
       - name: Fetch homework from Stuudium
         env:
-          STUUDIUM_URL: ${{ secrets.STUUDIUM_URL }}
+          STUUDIUM_URL: https://ramkool.ope.ee
           STUUDIUM_USER: ${{ secrets.STUUDIUM_USER }}
           STUUDIUM_PASS: ${{ secrets.STUUDIUM_PASS }}
         run: python scrape.py
