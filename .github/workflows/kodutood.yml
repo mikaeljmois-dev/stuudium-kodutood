@@ -2,7 +2,7 @@ name: Stuudiumi kodutööd
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # 12:00 UTC = 14:00 Tallinn in winter, 15:00 in summer
+    - cron: "0 14 * * *"   # 14:00 UTC = 16:00 Tallinn in winter, 17:00 in summer
   workflow_dispatch:       # lets you run it by hand from the Actions tab
 
 permissions:
