@@ -1,6 +1,6 @@
 # Stuudiumi kodutööd
 
-Iga päev kell 15:00 (Tallinna aeg) logib GitHub Actions nähtamatu brauseriga
+Iga päev umbes kell 14:00 (talveajal; suveajal 15:00) logib GitHub Actions nähtamatu brauseriga
 Stuudiumisse sisse, salvestab kodutööde lehed kausta `data/` ja logib välja.
 Kell 15:40 loeb Claude'i ajastatud ülesanne need läbi, kirjutab lahenduskäigud
 ja saadab teavituse Claude'i äppi.
